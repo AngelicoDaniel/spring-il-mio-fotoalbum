@@ -2,6 +2,7 @@ package org.lesson.fotoportfolio.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class Photo {
     private String description;
     private String url;
     private boolean visible;
+    private LocalDateTime createdAt;
     @ManyToMany
     @JoinTable(name = "photo_category",
             joinColumns = @JoinColumn(name = "photo_id"),
@@ -64,6 +66,14 @@ public class Photo {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public List<Category> getCategories() {

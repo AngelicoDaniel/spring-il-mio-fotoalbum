@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-
+    <th:block th:replace="~{/fragments/resources :: head(pageTitle='Photo Detail')}"></th:block>
 </head>
-<body>
-<nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
+<body th:with="isEdit=${photo.id != null}">
+<nav th:replace="~{/fragments/resources :: navbar(currentPage='Form')}"></nav>
 <div class="container">
+    <h1 th:text="${isEdit ? 'Edit Photo' : 'Add New Photo'}"></h1>
+    <form class="row"
+          enctype="multipart/form-data"
+          id="photo-form"
+          method="POST"
+          th:action="@{${formAction}}"
+          th:object="${photo}"
+          th:with="formAction=${isEdit ? '/books/edit/'+ book.id : '/books/create'}">
 
+        <div class="col-6">
+            <label class="form-label" for="photo-title">Title</label>
+            <input class="form-control" id="photo-title" th:field="*{title}" type="text">
+            <!--                   th:errorClass="is-invalid"-->
+            <!--            <div class="form-text">Title must not be blank</div>-->
+            <!--            <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback">-->
+            <!--                <ul>-->
+            <!--                    <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+        </div>
+        <div class="col-6">
+            <label class="form-label" for="photo-description">Title</label>
+            <input class="form-control" id="photo-description" th:field="*{description}" type="text">
+            <!--                   th:errorClass="is-invalid"-->
+            <!--            <div class="form-text">Title must not be blank</div>-->
+            <!--            <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback">-->
+            <!--                <ul>-->
+            <!--                    <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+        </div>
+        <div class="col-6">
+            <label class="form-label" for="photo-url">Title</label>
+            <input class="form-control" id="photo-url" th:field="*{url}" type="text">
+            <!--                   th:errorClass="is-invalid"-->
+            <!--            <div class="form-text">Title must not be blank</div>-->
+            <!--            <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback">-->
+            <!--                <ul>-->
+            <!--                    <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+        </div>
+        <div class="col-4">
+            <h3>Visible</h3>
+            <input class="form-check-input" th:field="*{visible}" th:id="|cat_${cat.id}|" th:value="${}"
+                   type="checkbox">
+            <label class="form-check-label">
+            </label>
+        </div>
+        <div class="col-4">
+            <h3>Categories</h3>
+            <div class="form-check" th:each="cat : ${categoryList}">
+                <input class="form-check-input" th:field="*{categories}" th:id="|cat_${cat.id}|" th:value="${cat.id}"
+                       type="checkbox">
+                <label class="form-check-label" th:for="|cat_${cat.id}|" th:text="${cat.name}">
+                </label>
+            </div>
+        </div>
+    </form>
 </div>
 </body>
 </html>

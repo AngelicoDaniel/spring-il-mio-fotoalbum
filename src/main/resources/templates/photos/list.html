@@ -26,6 +26,7 @@
             <div class="card">
                 <a class="btn btn-secondary" th:href="@{|/photos/${photo.id}|}">
                     <img class="card-img-top" th:alt="${photo.title}" th:src="${photo.url}">
+                    <a class="d-none" href="#">A</a>
                 </a>
                 <div class="card-body">
                     <p class="card-text" th:text="${photo.title}"></p>
