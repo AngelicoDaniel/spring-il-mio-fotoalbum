@@ -8,18 +8,21 @@ import java.util.List;
 @Entity
 @Table(name = "photos")
 public class Photo {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer id;
-@Column(nullable = false)
-private String title;
-private String url;
-private boolean visible;
-@ManyToMany
-@JoinTable(name = "photo_category",
-joinColumns = @JoinColumn(name = "photo_id"),
-inverseJoinColumns = @JoinColumn(name = "category_id"))
-private List<Category> categories = new ArrayList<>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(nullable = false)
+    private String title;
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String description;
+    private String url;
+    private boolean visible;
+    @ManyToMany
+    @JoinTable(name = "photo_category",
+            joinColumns = @JoinColumn(name = "photo_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private List<Category> categories = new ArrayList<>();
 
 //Getters & Setters
 
@@ -37,6 +40,14 @@ private List<Category> categories = new ArrayList<>();
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUrl() {

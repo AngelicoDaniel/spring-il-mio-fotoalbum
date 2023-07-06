@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- fragment che si chiama head e prende un parametro title -->
+    <th:block th:fragment="head(pageTitle)">
+        <meta charset="UTF-8">
+        <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+              name="viewport">
+        <meta content="ie=edge" http-equiv="X-UA-Compatible">
+        <!-- includo bootstrap css e js -->
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/CSS/style.css}">
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.2.0/css/all.min.css}">
+        <script defer th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+        <!-- il title della pagina cambia e lo leggo dal parametro del fragment -->
+        <title th:text="${pageTitle}"></title>
+    </th:block>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" th:fragment="navbar(currentPage)">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a aria-current="page" class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!--<div th:fragment="messages">-->
+<!--  <div class="alert alert-warning fw-bold" role="alert" th:if="${message != null}" th:text="${message}"></div>-->
+<!--</div>-->
+
+<hr>
+</body>

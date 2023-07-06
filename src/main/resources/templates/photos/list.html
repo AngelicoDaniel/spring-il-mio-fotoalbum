@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{/fragments/resources :: head(pageTitle='Photo List')}"></th:block>
+</head>
+<body>
+<nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}">
+    <form class="d-flex" role="search">
+        <input aria-label="Search" class="form-control me-2" placeholder="Search" type="search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</nav>
+<div class="container">
+    <ul th:each="photo : ${photos}">
+        <li th:text="${photo.title}"></li>
+    </ul>
+</div>
+
+</body>
+</html>
