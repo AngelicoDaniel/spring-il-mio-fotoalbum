@@ -7,13 +7,14 @@ INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizi
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto7','Sea','https://picsum.photos/id/135/200/300',true)
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto7','Railway','https://picsum.photos/id/227/200/300',true)
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto7','Snow','https://picsum.photos/id/260/200/300',true)
+INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto8','Train','https://picsum.photos/id/363/200/300',true)
 
 
 
-INSERT INTO `categories`(`name`) VALUES ('selfie')
+INSERT INTO `categories`(`name`) VALUES ('bianco e nero')
 INSERT INTO `categories`(`name`) VALUES ('natura')
 INSERT INTO `categories`(`name`) VALUES ('tecnologia')
-INSERT INTO `categories`(`name`) VALUES ('citta')
+INSERT INTO `categories`(`name`) VALUES ('urban')
 
 
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (1,1)

@@ -7,7 +7,7 @@
 <nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
 <div class="container pt-5" th:object="${photo}">
     <div class="row">
-        <div class="col-10 offset-1 bg-info py-4 border rounded-3 border-dark">
+        <div class="col-10 offset-1 bg-light py-4 border rounded-3 border-dark">
             <div class="row">
                 <div class="col-4">
                     <img class="card-img-top" th:alt="*{title}" th:src="*{url}">
@@ -17,7 +17,7 @@
                     <p class="card-text" th:text="*{description}"></p>
                     <div class="categorie">
                         <h3>Categorie</h3>
-                   
+
                         <ul class="" th:each="category : ${photo.categories}" th:object="${category}">
                             <li class="" th:text="*{name}"></li>
                         </ul>

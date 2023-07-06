@@ -6,13 +6,11 @@
 <body>
 <nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
 
-
-<!--faro' una serie di card solo con l'immagine e una scritta in hover che ti fa andare al dettaglio-->
 <div class="container pb-5">
     <div class="row g-4 mt-3">
-        <!--        messaggio che cambiera' in base all'utente-->
+
         <div class="col-6">
-            <h1>Benvenuto visitatore nel Photo Portfolio di MeMedesimo</h1>
+            <h1>Benvenuto visitatore nel Photo Portfolio di Daniel</h1>
         </div>
         <div class="col-6">
             <form method="GET" th:action="@{/photos}">
@@ -20,13 +18,13 @@
                 <label class="form-label fw-bold" for="keyword">Cerca Una Foto</label>
                 <input class="form-control my-3" id="keyword" name="keyword" placeholder="Cerca Qui..." type="text">
 
-                <button class="btn btn-primary" type="submit">Ricerca</button>
+                <button class="btn btn-secondary" type="submit">Ricerca</button>
             </form>
         </div>
 
         <div class="col-3" th:each="photo : ${photos}">
             <div class="card">
-                <a class="btn btn-primary" th:href="@{|/photos/${photo.id}|}">
+                <a class="btn btn-secondary" th:href="@{|/photos/${photo.id}|}">
                     <img class="card-img-top" th:alt="${photo.title}" th:src="${photo.url}">
                 </a>
                 <div class="card-body">
