@@ -17,7 +17,6 @@
                     <p class="card-text" th:text="*{description}"></p>
                     <div class="categorie">
                         <h3>Categorie</h3>
-                        <!--            in questo ul mettero' le categories-->
                         <ul class="" th:each="category : ${photo.categories}" th:object="${category}">
                             <li class="" th:text="*{name}"></li>
                         </ul>
@@ -35,6 +34,12 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
