@@ -87,37 +87,19 @@
           th:with="formAction=${isEdit ? '/books/edit/'+ book.id : '/books/create'}">
 
         <div class="col-6">
-            <label class="form-label" for="book-title">Title</label>
-            <input class="form-control" id="book-title" th:field="*{title}" type="text">
-            <!--                   th:errorClass="is-invalid"-->
-            <!--            <div class="form-text">Title must not be blank</div>-->
-            <!--            <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback">-->
-            <!--                <ul>-->
-            <!--                    <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
+            <label class="form-label" for="photo-title">Title</label>
+            <input class="form-control" id="photo-title" th:field="*{title}" type="text">
+
         </div>
         <div class="col-6">
-            <label class="form-label" for="book-title">Title</label>
-            <input class="form-control" id="book-title" th:field="*{description}" type="text">
-            <!--                   th:errorClass="is-invalid"-->
-            <!--            <div class="form-text">Title must not be blank</div>-->
-            <!--            <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback">-->
-            <!--                <ul>-->
-            <!--                    <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
+            <label class="form-label" for="photo-description">Title</label>
+            <input class="form-control" id="photo-description" th:field="*{description}" type="text">
+
         </div>
         <div class="col-6">
-            <label class="form-label" for="book-title">Title</label>
-            <input class="form-control" id="book-title" th:field="*{url}" type="text">
-            <!--                   th:errorClass="is-invalid"-->
-            <!--            <div class="form-text">Title must not be blank</div>-->
-            <!--            <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback">-->
-            <!--                <ul>-->
-            <!--                    <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
+            <label class="form-label" for="photo-url">Title</label>
+            <input class="form-control" id="photo-url" th:field="*{url}" type="text">
+
         </div>
         <div class="col-4">
             <h3>Visible</h3>
