@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{/fragments/resources :: head(pageTitle='Photo List')}"></th:block>
+</head>
+<body>
+<nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
+<div class="container pt-5" th:object="${photo}">
+    <div class="row">
+        <div class="col-10 offset-1 bg-info py-4 border rounded-3 border-dark">
+            <div class="row">
+                <div class="col-4">
+                    <img class="card-img-top" th:alt="*{title}" th:src="*{url}">
+                </div>
+                <div class="col-8">
+                    <h2 class="card-title" th:text="*{title}"></h2>
+                    <p class="card-text" th:text="*{description}"></p>
+                    <div class="categorie">
+                        <h3>Categorie</h3>
+                   
+                        <ul class="" th:each="category : ${photo.categories}" th:object="${category}">
+                            <li class="" th:text="*{name}"></li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body">
+                        <a class="card-link btn btn-primary" th:href="@{/photos}">Torna alla lista delle foto</a>
+                        <a class="card-link btn btn-danger" href="https://picsum.photos/images">Cerca foto su Lorem
+                            Picsum</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
