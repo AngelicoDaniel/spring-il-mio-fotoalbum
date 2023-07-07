@@ -9,8 +9,18 @@
     <div class="row">
         <div class="col-10 offset-1 bg-light py-4 border rounded-3 border-dark">
             <div class="row">
-                <div class="col-4">
+                <div class="col-4 relative-container">
                     <img class="card-img-top rounded-3" th:alt="*{title}" th:src="*{url}">
+                    <a class="fs-2 rounded-3 figlio-absolute text-center" th:href="@{|/photos/edit/${photo.id}|}"><i
+                            class="fa-solid fa-square-pen"></i></a>
+                    <form class="figlio-absolute-delete rounded-3 "
+                          method="POST"
+                          th:action="@{|/photos/delete/${photo.id}|}"
+                    >
+                        <button class="btn-delete-custom rounded-3 fs-3 " type="submit"><i
+                                class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </form>
                 </div>
                 <div class="col-8">
                     <h2 class="card-title" th:text="*{title}"></h2>
@@ -22,15 +32,22 @@
                         </ul>
                     </div>
 
-                    <div class="card-body">
-                        <a class="card-link btn btn-primary" th:href="@{/photos}">Torna alla lista delle foto</a>
-                        <a class="card-link btn btn-danger" href="https://picsum.photos/images">Cerca foto su Lorem
-                            Picsum</a>
-                    </div>
                 </div>
+            </div>
+            <div class="card-body mt-4">
+                <a class="card-link btn btn-light border border-dark" th:href="@{/photos}">Torna alla lista delle
+                    foto</a>
+                <a class="card-link btn btn-primary" href="https://picsum.photos/images">Cerca foto su Lorem Picsum</a>
             </div>
         </div>
     </div>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+

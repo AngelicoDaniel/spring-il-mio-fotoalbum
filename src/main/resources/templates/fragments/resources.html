@@ -8,15 +8,16 @@
         <meta content="ie=edge" http-equiv="X-UA-Compatible">
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
         <link rel="stylesheet" th:href="@{/CSS/style.css}">
-        <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.2.0/css/all.min.css}">
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.0/css/all.min.css}">
         <script defer th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
         <title th:text="${pageTitle}"></title>
     </th:block>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary" th:fragment="navbar(currentPage)">
+<nav class="navbar navbar-expand-lg bg-body-tertiary p-0" th:fragment="navbar(currentPage)">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/photos}">LOGO</a>
+        <a class="navbar-brand" th:href="@{/photos}"><img class="logo-navbar"
+                                                          src="https://parspng.com/wp-content/uploads/2022/10/camerapng.parspng.com-11.png"></a>
         <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler"
                 data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
@@ -25,16 +26,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a aria-current="page" class="nav-link" th:href="@{/photos}">Home</a>
+                    <a aria-current="page" class="nav-link fw-bold fs-5" th:href="@{/photos}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link fw-bold fs-5" href="#">Link</a>
                 </li>
             </ul>
+
         </div>
     </div>
 </nav>
 
+<div th:fragment="messages">
+    <div class="alert alert-warning fw-bold" role="alert" th:if="${message != null}" th:text="${message}"></div>
+</div>
 
 <hr>
 </body>

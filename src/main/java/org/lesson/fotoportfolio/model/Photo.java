@@ -12,6 +12,7 @@ public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    //@NotBlank
     @Column(nullable = false)
     private String title;
     @Lob

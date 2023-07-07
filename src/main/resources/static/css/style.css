@@ -5,8 +5,47 @@ list-style-type: none;
 body{
 min-height: 100vh;
 background-color: light-gray;
-
 }
 
+.logo-navbar{
+max-width:100px;
+}
+
+.relative-container {
+  position: relative;
+}
+
+.figlio-absolute {
+  position: absolute;
+  background-color: white;
+  height:40px;
+  width:40px;
+  line-height:38px;
+  color: #090352;
+  top: 15px;
+  right: 28px;
+  display: none;
+}
+.figlio-absolute-delete{
+position: absolute;
+
+  top: 65px;
+  right: 28px;
+  display: none;
+}
+.btn-delete-custom{
+background-color: white;
+border:none;
+color: #bb0404;
+height:40px;
+  width:40px;
+  line-height:38px;
+}
+.relative-container:hover .figlio-absolute {
+  display: block;
+}
+.relative-container:hover .figlio-absolute-delete {
+  display: block;
+}
 
 
