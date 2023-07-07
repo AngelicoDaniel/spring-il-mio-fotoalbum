@@ -35,3 +35,14 @@ INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (9,2)
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (10,1)
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (10,3)
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (10,4)
+
+INSERT INTO `users`(`id`,`age`, `email`, `first_name`, `last_name`, `password`) VALUES (1,18,'john@email.com','John','Doe','{noop}john')
+INSERT INTO `users`(`id`,`age`, `email`, `first_name`, `last_name`, `password`) VALUES (2,31,'jane@email.com','Jane','Doe','{noop}jane')
+INSERT INTO `users`(`id`,`age`, `email`, `first_name`, `last_name`, `password`) VALUES (3,34,'pippo@email.com','Pippo','Pippo','{noop}Pippo')
+
+INSERT INTO `roles`(`id`, `name`) VALUES (1,'ADMIN')
+INSERT INTO `roles`(`id`, `name`) VALUES (2,'USER')
+
+INSERT INTO `users_roles`(`user_id`, `roles_id`) VALUES (1,1)
+INSERT INTO `users_roles`(`user_id`, `roles_id`) VALUES (2,2)
+INSERT INTO `users_roles`(`user_id`, `roles_id`) VALUES (3,2)

@@ -4,8 +4,8 @@
     <th:block th:replace="~{/fragments/resources :: head(pageTitle='Photo Detail')}"></th:block>
 </head>
 <body th:with="isEdit=${photo.id != null}">
-<nav th:replace="~{/fragments/resources :: navbar(currentPage='Form')}"></nav>
-<div class="container">
+<nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
+<div class="container pt-5">
     <h1 th:text="${isEdit ? 'Edit Photo' : 'Add New Photo'}"></h1>
     <form class="row g-4"
           enctype="multipart/form-data"
@@ -14,6 +14,7 @@
           th:action="@{${formAction}}"
           th:object="${photo}"
           th:with="formAction=${isEdit ? '/photos/edit/'+ photo.id : '/photos/create'}">
+
         <div class="col-6">
             <label class="form-label" for="title">Title</label>
             <input class="form-control" id="title" th:errorClass="is-invalid" th:field="*{title}" type="text">
