@@ -67,7 +67,7 @@ public class PhotoController {
     private Photo getPhotoById(Integer id) {
         Optional<Photo> result = photoRepository.findById(id);
         if (result.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "la pizza con id" + id + "non e' stata trovata");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "la foto con id" + id + "non è stata trovata");
 
 
         }

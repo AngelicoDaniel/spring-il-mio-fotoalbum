@@ -6,11 +6,9 @@
 <body>
 <nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
 
-
-<!--faro' una serie di card solo con l'immagine e una scritta in hover che ti fa andare al dettaglio-->
 <div class="container pb-5">
     <div class="row g-4 mt-3">
-        <!--        messaggio che cambiera' in base all'utente-->
+
         <div class="col-6">
             <h1>Benvenuto visitatore nel Photo Portfolio di Daniel</h1>
             <a class="btn btn-dark" th:href="@{/photos/create}">Aggiungi una foto</a>
