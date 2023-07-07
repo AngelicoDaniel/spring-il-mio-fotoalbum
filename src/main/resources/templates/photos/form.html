@@ -14,7 +14,6 @@
           th:action="@{${formAction}}"
           th:object="${photo}"
           th:with="formAction=${isEdit ? '/photos/edit/'+ photo.id : '/photos/create'}">
-
         <div class="col-6">
             <label class="form-label" for="title">Title</label>
             <input class="form-control" id="title" th:errorClass="is-invalid" th:field="*{title}" type="text">

@@ -1,6 +1,7 @@
 package org.lesson.fotoportfolio.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,7 +13,11 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank
     private String name;
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String description;
     private LocalDateTime createdAt;
     @ManyToMany(mappedBy = "categories")
     private List<Photo> photos = new ArrayList<>();
@@ -33,6 +38,14 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public LocalDateTime getCreatedAt() {

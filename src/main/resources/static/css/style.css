@@ -47,5 +47,12 @@ height:40px;
 .relative-container:hover .figlio-absolute-delete {
   display: block;
 }
-
+.category-icons{
+min-width: 100px;
+}
+button{
+border:none;
+background-color:inherit;
+padding:0;
+}
 

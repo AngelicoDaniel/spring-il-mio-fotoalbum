@@ -11,10 +11,10 @@ INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizi
 
 
 
-INSERT INTO `categories`(`name`) VALUES ('bianco e nero')
-INSERT INTO `categories`(`name`) VALUES ('natura')
-INSERT INTO `categories`(`name`) VALUES ('tecnologia')
-INSERT INTO `categories`(`name`) VALUES ('urban')
+INSERT INTO `categories`(`name`,`description`) VALUES ('Black and White',"black and white photos")
+INSERT INTO `categories`(`name`,`description`) VALUES ('Nature','Photos with nature subject')
+INSERT INTO `categories`(`name`,`description`) VALUES ('Technology',"Photos with technological focus")
+INSERT INTO `categories`(`name`,`description`) VALUES ('Urban','Photos with cities subject')
 
 
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (1,1)

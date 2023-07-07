@@ -1,6 +1,7 @@
 package org.lesson.fotoportfolio.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    //@NotBlank
+    @NotBlank
     @Column(nullable = false)
     private String title;
     @Lob

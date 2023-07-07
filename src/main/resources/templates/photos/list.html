@@ -7,14 +7,12 @@
 <nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
 <div th:replace="~{/fragments/resources :: messages}"></div>
 
-<!--faro' una serie di card solo con l'immagine e una scritta in hover che ti fa andare al dettaglio-->
+
 <div class="container pb-5">
     <div class="row g-4 mt-3">
-        <!--        messaggio che cambiera' in base all'utente-->
         <div class="col-6">
             <h1 class="mb-3">Benvenuto visitatore nel Photo Portfolio di Daniel</h1>
             <a class="btn btn-dark" th:href="@{/photos/create}">Aggiungi una foto</a>
-
         </div>
         <div class="col-6">
             <form method="GET" th:action="@{/photos}">
@@ -25,9 +23,7 @@
                 <button class="btn btn-secondary" type="submit">Ricerca</button>
             </form>
         </div>
-
         <div class="col-3" th:each="photo : ${photos}">
-
             <div class="card" th:classappend="${photo.visible} ? '' : 'd-none'">
                 <a class="btn btn-secondary" th:href="@{|/photos/${photo.id}|}">
                     <img class="card-img-top" th:alt="${photo.title}" th:src="${photo.url}">
@@ -36,10 +32,8 @@
                     <p class="card-text" th:text="${photo.title}"></p>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
 </body>
 </html>

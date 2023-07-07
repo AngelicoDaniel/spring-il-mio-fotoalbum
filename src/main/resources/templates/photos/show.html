@@ -25,12 +25,14 @@
                 <div class="col-8">
                     <h2 class="card-title" th:text="*{title}"></h2>
                     <p class="card-text" th:text="*{description}"></p>
-                    <div class="categorie">
+
+                    <div class="categorie d-flex justify-content-between">
                         <h3>Categorie</h3>
-                        <ul class="" th:each="category : ${photo.categories}" th:object="${category}">
-                            <li class="" th:text="*{name}"></li>
-                        </ul>
+                        <a class="btn btn-light border-dark" th:href="@{/categories}">Form/Dettaglio Categorie</a>
                     </div>
+                    <ul class="" th:each="category : ${photo.categories}" th:object="${category}">
+                        <li class="" th:text="*{name}"></li>
+                    </ul>
 
                 </div>
             </div>
@@ -44,10 +46,3 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
