@@ -22,6 +22,7 @@ public class Photo {
     private String url;
     private boolean visible;
     private LocalDateTime createdAt;
+
     @ManyToMany
     @JoinTable(name = "photo_category",
             joinColumns = @JoinColumn(name = "photo_id"),

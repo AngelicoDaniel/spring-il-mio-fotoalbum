@@ -13,6 +13,7 @@
         <div class="col-6">
             <h1 class="mb-3">Benvenuto visitatore nel Photo Portfolio di Daniel</h1>
             <a class="btn btn-dark" th:href="@{/photos/create}">Aggiungi una foto</a>
+
         </div>
         <div class="col-6">
             <form method="GET" th:action="@{/photos}">
@@ -23,17 +24,26 @@
                 <button class="btn btn-secondary" type="submit">Ricerca</button>
             </form>
         </div>
-        <div class="col-3" th:each="photo : ${photos}">
-            <div class="card" th:classappend="${photo.visible} ? '' : 'd-none'">
-                <a class="btn btn-secondary" th:href="@{|/photos/${photo.id}|}">
+
+        <div class="col-3" th:each="photo : ${photos}" th:if="${photos.size > 0}">
+
+            <div class="card border-secondary border-3 border-opacity-50"
+                 th:classappend="${photo.visible} ? '' : 'd-none'">
+                <a class="bottone-to-detail" th:href="@{|/photos/${photo.id}|}">
                     <img class="card-img-top" th:alt="${photo.title}" th:src="${photo.url}">
+
                 </a>
                 <div class="card-body">
-                    <p class="card-text" th:text="${photo.title}"></p>
+                    <p class="card-text fs-4" th:text="${photo.title}"></p>
                 </div>
             </div>
+
+        </div>
+        <div class="col-12 alert alert-info mt-5 fw-bold" th:unless="${photos.size > 0}">We are sorry but there are no
+            photos in this portfolio yet
         </div>
     </div>
 </div>
+
 </body>
 </html>

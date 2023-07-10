@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import org.lesson.fotoportfolio.model.Photo;
 import org.lesson.fotoportfolio.repository.PhotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,15 +15,10 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/v1/photos")
+@RequestMapping("api/v1/photos")
 public class PhotoRestController {
-
-    private final PhotoRepository photoRepository;
-
     @Autowired
-    public PhotoRestController(PhotoRepository photoRepository) {
-        this.photoRepository = photoRepository;
-    }
+    private PhotoRepository photoRepository;
 
     @GetMapping
     public List<Photo> index() {
@@ -30,42 +27,39 @@ public class PhotoRestController {
 
     @GetMapping("/{id}")
     public Photo get(@PathVariable Integer id) {
-        Optional<Photo> photo = photoRepository.findById(id);
-        if (photo.isPresent()) {
-            return photo.get();
+        Optional<Photo> photoById = photoRepository.findById(id);
+        if (photoById.isPresent()) {
+            return photoById.get();
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public Photo create(@Valid @RequestBody Photo photo) {
-        return photoRepository.save(photo);
+        try {
+            return photoRepository.save(photo);
+        } catch (RuntimeException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping("/{id}")
-    public Photo update(@PathVariable Integer id, @Valid @RequestBody Photo updatedPhoto) {
-        Optional<Photo> existingPhoto = photoRepository.findById(id);
-        if (existingPhoto.isPresent()) {
-            Photo photo = existingPhoto.get();
-            photo.setTitle(updatedPhoto.getTitle());
-            photo.setDescription(updatedPhoto.getDescription());
-            photo.setUrl(updatedPhoto.getUrl());
-            photo.setVisible(updatedPhoto.isVisible());
-            return photoRepository.save(photo);
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
+    public Photo update(@PathVariable Integer id, @Valid @RequestBody Photo photo) {
+        photo.setId(id);
+        return photoRepository.save(photo);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
-        Optional<Photo> photo = photoRepository.findById(id);
-        if (photo.isPresent()) {
-            photoRepository.deleteById(id);
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
+        photoRepository.deleteById(id);
     }
+
+    @GetMapping("/page")
+    public Page<Photo> page(
+            Pageable pageable) {
+        return photoRepository.findAll(pageable);
+    }
+
+
 }

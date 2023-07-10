@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Error</title>
+    <th:block th:replace="~{/fragments/resources :: head(pageTitle='Error 4xx')}"></th:block>
 </head>
 <body>
-<h1>4xx (Client Error): The website or the page could not be reached, either the page is unavailable or the request
-    contains bad syntax.</h1>
-<h2><span th:text="${status}"></span> <span th:text="${message}"></span></h2>
+<div class="container mt-5">
+    <h1>4xx (Client Error): The website or the page could not be reached, either the page is unavailable or the request
+        contains bad syntax.</h1>
+    <h2><span th:text="${status}"></span> <span th:text="${message}"></span></h2>
+</div>
 </body>
 </html>
