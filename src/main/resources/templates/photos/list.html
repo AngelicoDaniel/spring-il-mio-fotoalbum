@@ -7,7 +7,6 @@
 <nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
 <div th:replace="~{/fragments/resources :: messages}"></div>
 
-
 <div class="container pb-5">
     <div class="row g-4 mt-3">
         <div class="col-6">
@@ -26,9 +25,7 @@
         </div>
 
         <div class="col-3" th:each="photo : ${photos}" th:if="${photos.size > 0}">
-
-            <div class="card border-secondary border-3 border-opacity-50"
-                 th:classappend="${photo.visible} ? '' : 'd-none'">
+            <div class="card border-secondary border-3 border-opacity-50">
                 <a class="bottone-to-detail" th:href="@{|/photos/${photo.id}|}">
                     <img class="card-img-top" th:alt="${photo.title}" th:src="${photo.url}">
 

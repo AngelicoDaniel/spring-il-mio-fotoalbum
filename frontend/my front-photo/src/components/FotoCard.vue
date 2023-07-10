@@ -4,38 +4,35 @@
 export default {
   data() {
     return {
-      
-    }
-  }
 
-  // components: {
-  //   MyComponent,
-  // },
+    }
+  },
+
+props:{
+  photo:Object
+},
+
 };
 </script>
 
 <template>
-  <div class="col-4 col-md-6">
-
+  <div v-if="photo.visible !== false" class="col-4 col-md-6">
     <div class="card mb-3 text-light">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="https://i1.sndcdn.com/artworks-JgZTXlfHGzsoG7BZ-r6esOA-t500x500.jpg" class="img-fluid rounded-start" alt="photo">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Photo card</h5>
-          <p class="card-text">Photo description</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-
-          <button class="btn btn-light">button</button>
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img :src="photo.url" class="img-fluid rounded-start" :alt="photo.title">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ photo.title }}</h5>
+            <p class="card-text">{{ photo.description }}</p>
+            <p class="card-text"><small class="text-body-secondary">{{ photo.createdAt }}</small></p>
+            <button class="btn btn-light">Torna alla lista</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-
 </template>
 <style lang="scss" scoped></style>
-
 

@@ -1,21 +1,22 @@
 <script>
 import List from "./components/List.vue";
-
+import navbar from "./components/navbar.vue"
 
 export default {
   data() {
     return {
-      
+
     }
   },
 
   components: {
-    List,
+    List,navbar,
   },
 };
 </script>
 
 <template>
+  <navbar/>
   <div class="container">
     <List/>
   </div>
