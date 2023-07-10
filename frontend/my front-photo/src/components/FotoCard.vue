@@ -11,8 +11,13 @@ export default {
 props:{
   photo:Object
 },
-
+computed:{
+  abstract(){
+    return this.photo.description.slice(0,60) + "...";
+  }
+},
 };
+
 </script>
 
 <template>
@@ -24,10 +29,11 @@ props:{
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{ photo.title }}</h5>
-            <p class="card-text">{{ photo.description }}</p>
+            <h5 class="card-title my-4 fw-bold fs-2">{{ photo.title }}</h5>
+            <p class="card-text d-md-none">{{ abstract }}</p>
+            <p class="card-text d-none d-md-block">{{photo.description}}</p>
             <p class="card-text"><small class="text-body-secondary">{{ photo.createdAt }}</small></p>
-            <button class="btn btn-light">Torna alla lista</button>
+            <button class="btn btn-light fw-bold mt-3">Torna alla lista</button>
           </div>
         </div>
       </div>
