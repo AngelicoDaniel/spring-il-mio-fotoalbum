@@ -22,7 +22,7 @@ computed:{
 
 <template>
   <div v-if="photo.visible !== false" class="col-4 col-md-6">
-    <div class="card mb-3 text-light">
+    <div class="card mb-3 text-light mt-3">
       <div class="row g-0">
         <div class="col-md-4">
           <img :src="photo.url" class="img-fluid rounded-start" :alt="photo.title">
@@ -41,4 +41,3 @@ computed:{
   </div>
 </template>
 <style lang="scss" scoped></style>
-
